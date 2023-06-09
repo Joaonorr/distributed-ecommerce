@@ -21,5 +21,3 @@ export const CreateInitialData = async () => {
         console.log(error);
     }
 }
-
-// export default CreateInitialData;
