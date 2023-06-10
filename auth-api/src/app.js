@@ -1,11 +1,18 @@
 import express from 'express';
 import * as db from './config/initialData.config.js'
 import UserRoutes from './routes/User.routes.js'
+import dotenv from 'dotenv'
+
 
 // Create a new express application instance
 const app = express();
 const env = process.env;
 const PORT = env.PORT || 8082;
+
+dotenv.config();
+
+console.log(env.API_SECRETE)
+console.log("teste")
 
 // Create initial data
 db.CreateInitialData();
