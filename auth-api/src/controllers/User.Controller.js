@@ -22,6 +22,13 @@ class UserController {
 
         return res.status(result.status).json(result.data);
     }
+
+    async getAuthToken(req, res) {
+            
+        let result = await UserService.getAuthToken(req, res);
+
+        return res.status(result.status).json(result.data);
+    }
 }
 
 export default new UserController();

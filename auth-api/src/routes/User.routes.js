@@ -25,4 +25,10 @@ router.get("/findByEmail/", UserController.findByEmail);
  */
 router.get("/findById/:id", UserController.findById);
 
+/**
+ * Rota responsável por gerar um token de autenticação
+ * @name authToken
+ */
+router.post("/auth/token", UserController.getAuthToken);
+
 export default router;

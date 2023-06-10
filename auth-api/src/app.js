@@ -11,9 +11,6 @@ const PORT = env.PORT || 8082;
 
 dotenv.config();
 
-console.log(env.API_SECRETE)
-console.log("teste")
-
 // Create initial data
 db.CreateInitialData();
 
@@ -21,7 +18,7 @@ db.CreateInitialData();
 app.use(express.json());
 
 // Configure express to use router
-app.use('/api/v1', UserRoutes)
+app.use('/api/v1/user', UserRoutes)
 
 // Up server
 app.listen(PORT, () => {
