@@ -3,7 +3,6 @@ import * as db from './config/initialData.config.js'
 import UserRoutes from './routes/User.routes.js'
 import dotenv from 'dotenv'
 
-
 // Create a new express application instance
 const app = express();
 const env = process.env;

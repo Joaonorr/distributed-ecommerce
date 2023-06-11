@@ -1,7 +1,23 @@
 import { Router } from "express";
 import UserController from "../controllers/User.Controller.js";
+import authCheck from "../middlewares/Auth.js";
 
 const router = Router();
+
+/**
+ * Rota responsável por gerar um token de autenticação
+ * @name authToken
+ */
+router.post("/auth/token", UserController.getAuthToken);
+
+/**
+ * Middleware responsável por verificar se o usuário está autenticado
+ * @name authCheck
+ * @param {object} req Objeto de requisição
+ * @param {object} res Objeto de resposta
+ * @param {object} next Objeto de próxima função
+ */
+router.use(authCheck);
 
 /**
  * Rota responsável por procurar um usuário pelo email
@@ -25,10 +41,6 @@ router.get("/findByEmail/", UserController.findByEmail);
  */
 router.get("/findById/:id", UserController.findById);
 
-/**
- * Rota responsável por gerar um token de autenticação
- * @name authToken
- */
-router.post("/auth/token", UserController.getAuthToken);
+
 
 export default router;
