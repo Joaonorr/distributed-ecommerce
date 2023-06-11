@@ -41,6 +41,9 @@ services:
     container_name: auth-api
     environment:
       - PORT=8082
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=123456
+      - API_SECRETE=YXV0aC1hcGktc2VjcmV0ZS1lbmNvZGUtZGV2ZWxvcGVyLTEyMzQ1Ng==
     ports:
       - 8082:8082
 

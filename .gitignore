@@ -1,2 +1,3 @@
 # não deixar o usuário adicionar o node_modules
 node_modules/
+.env
