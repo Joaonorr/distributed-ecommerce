@@ -37,6 +37,8 @@ services:
       - 28017:28017
 
   auth-api:
+    depends_on: 
+      - auth-db
     build: './auth-api'
     container_name: auth-api
     environment:
@@ -47,15 +49,27 @@ services:
     ports:
       - 8082:8082
 
-  product-api:
-    build: './product-api'
-    container_name: product-api
+  # product-api:
+  #   build: './product-api'
+  #   container_name: product-api
+  #   environment:
+  #     - PORT=8081
+  #   ports:
+  #     - 8081:8081
+
+  product-api-v2:
+    depends_on:
+      - product-db
+    build: './product-api-v2'
+    container_name: product-api-v2
     environment:
       - PORT=8081
     ports:
-      - 8081:8081
+      - 8081:80
 
   sales-api:
+    depends_on: 
+      - sales-db
     build: './sales-api'
     container_name: sales-api
     environment:
@@ -63,11 +77,11 @@ services:
     ports:
       - 8083:8083
 
-  sales_rabbitmq:
-    image: rabbitmq:3-management
-    container_name: sales_rabbitmq
-    restart: always
-    ports:
-      - 5672:5672
-      - 15672:15672
-      - 25676:25676
+  # sales_rabbitmq:
+  #   image: rabbitmq:3-management
+  #   container_name: sales_rabbitmq
+  #   restart: always
+  #   ports:
+  #     - 5672:5672
+  #     - 15672:15672
+  #     - 25676:25676
