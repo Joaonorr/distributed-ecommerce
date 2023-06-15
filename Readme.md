@@ -20,10 +20,10 @@
 - [Descrição do projeto](#descrição-do-projeto)
 - [Requisitos não funcionais](#requisitos-não-funcionais)
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
+- [Motivos da escolha das tecnologias](#motivos-da-escolha-das-tecnologias)
 - [Como rodar o projeto](#como-rodar-o-projeto)
     - [Pré-requisitos](#pré-requisitos)
     - [Rodando o projeto](#rodando-o-projeto)
-- [Motivos da escolha das tecnologias](#motivos-da-escolha-das-tecnologias)
 
 ## Descrição do Projeto
 
@@ -37,6 +37,7 @@ o Principal objetivo do projeto é a aplicação de conceitos de sistemas distri
 - Performance: A aplicação deve ser performática, garantindo que o usuário não tenha que esperar muito tempo para realizar uma compra.
 - Escalabilidade: A aplicação deve ser escalável, garantindo que o sistema possa suportar um grande número de usuários.
 - Persistência: A aplicação deve persistir os dados dos usuários e dos produtos.
+- Heterogeneidade: A aplicação deve ser heterogênea, permitindo que os serviços sejam desenvolvidos em diferentes linguagens de programação.
 
 ## Tecnologias utilizadas
 
