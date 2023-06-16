@@ -1,25 +1,15 @@
-using Product_api_v2.Services;
+using Product_api_v2.Config.ConfigureMiddlewares;
+using Product_api_v2.Config.ConfigureServices;
+using Product_api_v2.Routes;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.ConfigureServices();
-
+builder.ServiceConfig();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.MiddlewaresConfig();
 
-app.UseHttpsRedirection();
-
-
-app.MapGet("/", () =>
-{
-    return "Hello World!";
-});
+app.ProductRoutes();
 
 app.Run();
