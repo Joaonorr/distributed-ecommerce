@@ -2,13 +2,13 @@
 
 namespace OrderingPlatform.Domain.Products;
 
-public class CategoryModel : Entity
+public class Category : Entity
 {
     public string Name { get; private set; }
 
     public bool Active { get; private set; }
 
-    public CategoryModel(string name, string createdBy, string editedBy)
+    public Category(string name, string createdBy, string editedBy)
     {
         Name = name;
 
@@ -36,7 +36,7 @@ public class CategoryModel : Entity
 
     private void validate()
     {
-        var contract = new Contract<CategoryModel>()
+        var contract = new Contract<Category>()
                     .IsNotNullOrEmpty(Name, "Name")
                     .IsGreaterOrEqualsThan(Name, 3, "Name")
                     .IsNotNullOrEmpty(CreatedBy, "CreatedBy")
