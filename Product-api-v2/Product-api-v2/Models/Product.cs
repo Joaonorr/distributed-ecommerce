@@ -1,6 +1,6 @@
 ﻿using Flunt.Validations;
 
-namespace OrderingPlatform.Domain.Products;
+namespace Product_api_v2.Models;
 
 public class Product : Entity
 {

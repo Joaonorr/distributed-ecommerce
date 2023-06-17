@@ -52,7 +52,7 @@ namespace Product_api_v2.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("OrderingPlatform.Domain.Products.Product", b =>
@@ -101,7 +101,7 @@ namespace Product_api_v2.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("OrderingPlatform.Domain.Products.Product", b =>

@@ -1,13 +1,14 @@
 ﻿using Flunt.Validations;
 
-namespace OrderingPlatform.Domain.Products;
+namespace Product_api_v2.Models;
 
 public class Category : Entity
 {
-    public string Name { get; private set; }
+    public string Name { get; set; }
 
-    public bool Active { get; private set; }
+    public bool Active { get; set; }
 
+    public Category() { }
     public Category(string name, string createdBy, string editedBy)
     {
         Name = name;

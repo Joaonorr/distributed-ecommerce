@@ -1,4 +1,4 @@
-﻿using Product_api_v2.Endpoints.Product;
+﻿using Product_api_v2.Endpoints;
 
 namespace Product_api_v2.Routes;
 

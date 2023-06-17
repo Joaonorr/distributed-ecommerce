@@ -1,6 +1,6 @@
 ﻿using Flunt.Notifications;
 using Microsoft.EntityFrameworkCore;
-using OrderingPlatform.Domain.Products;
+using Product_api_v2.Models;
 
 namespace Product_api_v2.Data;
 

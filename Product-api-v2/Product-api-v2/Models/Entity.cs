@@ -1,6 +1,6 @@
 ﻿using Flunt.Notifications;
 
-namespace OrderingPlatform.Domain;
+namespace Product_api_v2.Models;
 
 public abstract class Entity : Notifiable<Notification>
 {

@@ -10,6 +10,8 @@ var app = builder.Build();
 
 app.MiddlewaresConfig();
 
+app.CategoryRoutes();
+
 app.ProductRoutes();
 
 app.Run();
