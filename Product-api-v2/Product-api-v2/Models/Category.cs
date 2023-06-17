@@ -30,7 +30,7 @@ public class Category : Entity
 
         EditedBy = editedBy;
 
-        EditedOn = DateTime.Now;
+        EditedOn = DateTime.Now.ToUniversalTime();
 
         validate();
     }

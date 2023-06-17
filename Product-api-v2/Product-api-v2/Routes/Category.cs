@@ -8,6 +8,12 @@ public static class Category
     {
         app.MapMethods(CategoryGetAll.Template, CategoryGetAll.Method, CategoryGetAll.Handle);
 
+        app.MapMethods(CategoryGetById.Template, CategoryGetById.Method, CategoryGetById.Handle);
+
         app.MapMethods(CategoryPost.Template, CategoryPost.Method, CategoryPost.Handle);
+
+        app.MapMethods(CategoryPut.Template, CategoryPut.Method, CategoryPut.Handle);
+
+        app.MapMethods(CategoryDelete.Template, CategoryDelete.Method, CategoryDelete.Handle);
     }
 }
