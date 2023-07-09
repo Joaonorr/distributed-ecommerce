@@ -9,23 +9,50 @@ public class Product : Entity
     public Guid CategoryId { get; set; }
     public Category Category { get; set; }
     public decimal Price { get; private set; }
-    public bool HasStoock { get; set; }
+    public int Stoock { get; set; }
     public bool Active { get; private set; } = true;
 
     public Product() { }
 
-    public Product(string name, Category category, string description, decimal price, bool hasStoock, string createdBy)
+    public Product(string name, Category category, string description, decimal price, int Stoock, string createdBy)
     {
-        Name = name;
-        Category = category;
-        Description = description;
-        Price = price;
-        HasStoock = hasStoock;
+        this.Name = name;
+
+        this.Category = category;
+
+        this.CategoryId = category.Id;
+
+        this.Description = description;
+
+        this.Price = price;
+
+        this.Stoock = Stoock;
 
         CreatedBy = createdBy;
+
         EditedBy = createdBy;
 
         Validate();
+    }
+
+    public void EditInfo(string name, string description , Category category, decimal price, int stoock, bool Active)
+    {
+        this.Name = name;
+
+        this.Description = description;
+
+        this.CategoryId = category.Id;
+
+        this.Category = category;
+
+        this.Price = price;
+
+        this.Stoock = stoock;
+
+        this.Active = Active;
+
+        EditedOn = DateTime.Now.ToUniversalTime();
+
     }
 
     private void Validate()

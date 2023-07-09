@@ -24,6 +24,7 @@ public static class CategoryDelete
         }
 
         context.Categories.Remove(category);
+
         await context.SaveChangesAsync();
 
         return Results.Ok();

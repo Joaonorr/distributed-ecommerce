@@ -22,7 +22,7 @@ namespace Product_api_v2.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("OrderingPlatform.Domain.Products.Category", b =>
+            modelBuilder.Entity("Product_api_v2.Models.Category", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -52,10 +52,10 @@ namespace Product_api_v2.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("OrderingPlatform.Domain.Products.Product", b =>
+            modelBuilder.Entity("Product_api_v2.Models.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -86,9 +86,6 @@ namespace Product_api_v2.Migrations
                     b.Property<DateTime>("EditedOn")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<bool>("HasStoock")
-                        .HasColumnType("boolean");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -97,16 +94,19 @@ namespace Product_api_v2.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric(10,2)");
 
+                    b.Property<int>("Stoock")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("OrderingPlatform.Domain.Products.Product", b =>
+            modelBuilder.Entity("Product_api_v2.Models.Product", b =>
                 {
-                    b.HasOne("OrderingPlatform.Domain.Products.Category", "Category")
+                    b.HasOne("Product_api_v2.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -1,6 +1,6 @@
 import express from 'express';
-import * as db from './config/initialData.config.js'
-import UserRoutes from './routes/User.routes.js'
+import * as db from './config/InitialDataConfig.js'
+import UserRoutes from './routes/UserRoutes.js'
 import dotenv from 'dotenv'
 
 // Create a new express application instance

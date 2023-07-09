@@ -49,23 +49,39 @@ services:
     ports:
       - 8082:8082
 
-  # product-api:
-  #   build: './product-api'
-  #   container_name: product-api
-  #   environment:
-  #     - PORT=8081
-  #   ports:
-  #     - 8081:8081
-
-  product-api-v2:
+  product-api:
+    build: './product-api'
+    container_name: product-api
     depends_on:
       - product-db
-    build: './product-api-v2'
-    container_name: product-api-v2
+      - sales_rabbit
     environment:
       - PORT=8081
+      - API_SECRET=YXV0aC1hcGktc2VjcmV0ZS1lbmNvZGUtZGV2ZWxvcGVyLTEyMzQ1Ng==
+      - DB_HOST=product-db
+      - DB_NAME=product-db
+      - DB_USER=admin
+      - DB_PASSWORD=123456
+      - DB_PORT=5432
+      - RABBIT_MQ_HOST=sales_rabbit
+      - RABBIT_MQ_PORT=5672
+      - RABBIT_MQ_USER=guest
+      - RABBIT_MQ_PASSWORD=guest
+      - SALES_HOST=sales-api
+      - SALES_PORT=8082
     ports:
-      - 8081:80
+      - 8081:8081
+
+  # product-api-v2:
+  #   depends_on:
+  #     - product-db
+  #   build: './product-api-v2'
+  #   container_name: product-api-v2
+  #   environment:
+  #     - PORT=8081
+  #     - DB_CONNECTION_STRING: "User ID=admin;Password=123456;Host=localhost;Port=5433;Database=product-db;SslMode=disable;Pooling=true"
+  #   ports:
+  #     - 8081:80
 
   sales-api:
     depends_on: 
@@ -77,11 +93,14 @@ services:
     ports:
       - 8083:8083
 
-  # sales_rabbitmq:
-  #   image: rabbitmq:3-management
-  #   container_name: sales_rabbitmq
-  #   restart: always
-  #   ports:
-  #     - 5672:5672
-  #     - 15672:15672
-  #     - 25676:25676
+  sales_rabbit:
+    image: rabbitmq:3-management
+    container_name: sales_rabbit
+    hostname: sales_rabbit
+    ports:
+      - 5672:5672
+      - 25676:25676
+      - 15672:15672
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
