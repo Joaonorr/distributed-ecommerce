@@ -19,7 +19,9 @@ public class JwtService {
     private String apiSecret;
 
     public void validateAuthorization(String token) {
+
         var accessToken = extractToken(token);
+
         try {
             var claims = Jwts
                 .parserBuilder()
@@ -27,12 +29,17 @@ public class JwtService {
                 .build()
                 .parseClaimsJws(accessToken)
                 .getBody();
+
             var user = JwtResponse.getUser(claims);
+
             if (isEmpty(user) || isEmpty(user.getId())) {
                 throw new AuthenticationException("The user is not valid.");
             }
+
         } catch (Exception ex) {
+
             ex.printStackTrace();
+            
             throw new AuthenticationException("Error while trying to proccess the Access Token.");
         }
     }

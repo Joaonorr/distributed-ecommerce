@@ -25,7 +25,7 @@ services:
       - 5433:5432
 
   sales-db:
-    image: tutum/mongodb
+    image: mongo
     container_name: sales-db
     restart: always
     environment:

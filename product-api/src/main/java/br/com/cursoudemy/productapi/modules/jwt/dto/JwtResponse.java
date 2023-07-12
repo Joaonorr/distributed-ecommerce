@@ -21,7 +21,7 @@ public class JwtResponse {
         try {
 
             return new ObjectMapper()
-            .convertValue(jwtClaims.get("authUser"), JwtResponse.class);
+                .convertValue(jwtClaims.get("authUser"), JwtResponse.class);
 
         } catch (Exception ex) {
 

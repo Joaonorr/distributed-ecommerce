@@ -1,7 +1,7 @@
-FROM node:20
-WORKDIR /usr/src/app
+FROM node:14
+WORKDIR .
 COPY package*.json ./
 RUN yarn
 COPY . .
 EXPOSE 8083
-CMD ["node", "src/app.js"]
+CMD ["node", "app.js"]
